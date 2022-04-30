@@ -40,10 +40,10 @@ classify:
     # LOAD MATRICES
     # =====================================
 	
-    lw s0, 4(a1)
-    lw s1, 8(a1)
-    lw s2, 12(a1)
-    lw s3, 16(a1)
+    lw s0, 0(a1)
+    lw s1, 4(a1)
+    lw s2, 8(a1)
+    lw s3, 12(a1)
     # Load pretrained m0
 	addi s10, sp, 0
     addi s11, sp, 4

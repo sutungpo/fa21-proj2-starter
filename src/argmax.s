@@ -17,18 +17,29 @@
 argmax:
 
     # Prologue
-
-
+    ebreak
+	li t5, 1
+    blt a1, t5, fail
+	li t0, 0
+    li t5, 0
+    lw t4, 0(a0)
+    addi t0, t0, 1
 loop_start:
-
-
+	bge t0, a1, loop_end
+	slli t1, t0, 2
+    add t2, t1, a0
+    lw t3, 0(t2)
+    bge t4, t3, loop_continue
+    mv t4, t3
+    mv t5, t0
 loop_continue:
-
+	addi t0, t0, 1
+    j loop_start
 
 loop_end:
-
-
     # Epilogue
-
-
+	mv a0, t5
     ret
+fail:
+	li a1, 57
+    j exit2
